@@ -45,7 +45,7 @@ Drainer 从各个 Pump 中收集 Binlog 进行归并，再将 Binlog 转化成 S
 #### 注意
 
 * 在运行 TiDB 时，需要保证至少一个 Pump 正常运行。
-* 通过给 TiDB 增加启动参数 enable-binlog 来开启 Binlog。
+* 通过给 TiDB 增加启动参数 enable_binlog 来开启 Binlog。
 * Drainer 不支持对 ignore schemas（在过滤列表中的 schemas）的 table 进行 rename DDL 操作。
 * 在已有的 TiDB 集群中启动 Drainer，一般需要全量备份并且获取 savepoint，然后导入全量备份，最后启动 Drainer 从 savepoint 开始同步增量数据。
 * Drainer 支持将 Binlog 同步到 MySQL/TiDB/Kafka/ 文件。如果需要将 Binlog 同步到其他类型的目的地中，可以设置 Drainer 将 Binlog 同步到 Kafka，再读取 Kafka 中的数据进行自定义处理，参考 [binlog slave client 用户文档](./binlog-slave-client.md)。
